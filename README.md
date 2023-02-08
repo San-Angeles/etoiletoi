@@ -1,2 +1,2 @@
-# etoiletoi
+# Etoiletoi
 Not another lorem ipsum.
