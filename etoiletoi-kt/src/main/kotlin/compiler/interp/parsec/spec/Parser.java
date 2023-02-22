@@ -48,25 +48,25 @@ public interface Parser<A> extends GenericParser<StringBuffer, A> {
         };
     }
 
-    default <R> Parser<R> trunk(Parser<?> next,
-            Function<A, Parser<R>> deform, Function<A, Parser<R>> exact) {
-        return tokens -> GenericParser.super.trunk(next,
-                x -> deform.apply(x), x -> exact.apply(x)).parse(tokens);
-    }
+    // default <R> Parser<R> trunk(Parser<?> next,
+    //         Function<A, Parser<R>> deform, Function<A, Parser<R>> exact) {
+    //     return tokens -> GenericParser.super.trunk(next,
+    //             x -> deform.apply(x), x -> exact.apply(x)).parse(tokens);
+    // }
 
-    default <B, R> Parser<R> deform(Parser<B> next,
-            Function<A, R> deform, Function<Tuple<A, B>, R> exact) {
-        return tokens -> GenericParser.super.deform(next, deform, exact).parse(tokens);
-    }
+    // default <B, R> Parser<R> deform(Parser<B> next,
+    //         Function<A, R> deform, Function<Tuple<A, B>, R> exact) {
+    //     return tokens -> GenericParser.super.deform(next, deform, exact).parse(tokens);
+    // }
 
-    default <B, R> Parser<R> branch(Parser<B> next,
-            Function<A, R> deform, Function<A, R> exact) {
-        return tokens -> GenericParser.super.branch(next, deform, exact).parse(tokens);
-    }
+    // default <B, R> Parser<R> branch(Parser<B> next,
+    //         Function<A, R> deform, Function<A, R> exact) {
+    //     return tokens -> GenericParser.super.branch(next, deform, exact).parse(tokens);
+    // }
 
-    default <B> Parser<A> branch(Parser<B> next, Function<A, A> exact) {
-        return tokens -> GenericParser.super.branch(next, exact).parse(tokens);
-    }
+    // default <B> Parser<A> branch(Parser<B> next, Function<A, A> exact) {
+    //     return tokens -> GenericParser.super.branch(next, exact).parse(tokens);
+    // }
 
     default <B> Parser<Tuple<A, B>> follow(Parser<B> next) {
         return tokens -> GenericParser.super.follow(next).parse(tokens);
